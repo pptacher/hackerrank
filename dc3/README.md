@@ -1,4 +1,4 @@
-# DCA
+# DC3
 Beautiful algorithms to compute suffix array and longest common prefix array in linear time.
 
 ## references
