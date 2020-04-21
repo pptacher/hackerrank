@@ -70,7 +70,7 @@ void lcp(string& s, std::vector<int>& v, std::vector<int>& h){
   }
 
   int k(0);
-  for(int i=0; i<n-1; ++i){
+  for(int i=0; i<n-1; ++i){ // At most 2n char comparisons.
     int j = pos[v[i]-1];
     while(i+k<n-1 && s[i+k]==s[j+k]){
       ++k;
@@ -121,7 +121,7 @@ void dc3(std::vector<int>& u, std::vector<int>& v){
     w[i+n1][3] = i+n1;
   }
 
-  // radix sort blocks of 3.
+  // radix sort blocks of 3. O(n+|Σ|).
   u.pop_back();
   u.pop_back();
   std::vector<std::array<int,4>> w1(n1+n2,std::array<int,4>());
@@ -155,13 +155,13 @@ void dc3(std::vector<int>& u, std::vector<int>& v){
   std::vector<int> v2(n1+n2,0);
   dc3(u1,v2);
 
-  // radix sort element at indices multiples of 3.
+  // radix sort element at indices multiples of 3. O(n+|Σ|).
 	std::vector<std::array<int,3>> u2(n-n1-n2,std::array<int,3>());
 	for(int i=0; i<n-n1-n2; ++i){
 		u2[i] = {{u[3*i],3*i+1<n?v2[i]:-1,3*i}};
 	}
 	std::vector<std::array<int,3>> u3(n-n1-n2,std::array<int,3>());
-  mxm  = std::max(mxm,n1+n2);
+  mxm  = std::max(mxm,n1+n2);          //  |Σ| = size of current alphabet.
 
 	for(int k=0; k<2; ++k){
 		std::vector<int> c((uint)mxm+2,0);
@@ -179,7 +179,7 @@ void dc3(std::vector<int>& u, std::vector<int>& v){
 
 	}
 
-  // merge.
+  // merge. O(n).
 	int i1(0), i12(0);
   std::vector<int> v1(n1+n2,0);
   for(int i=0; i<n1; ++i){
@@ -190,7 +190,7 @@ void dc3(std::vector<int>& u, std::vector<int>& v){
   }
 
 	for(int i=0; i<n; ++i){
- 
+
     if(i1==n-n1-n2){
        v[v1[i12++]] = i;
     }
