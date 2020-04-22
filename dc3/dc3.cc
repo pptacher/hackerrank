@@ -161,7 +161,7 @@ void dc3(std::vector<int>& u, std::vector<int>& v){
 		u2[i] = {{u[3*i],3*i+1<n?v2[i]:-1,3*i}};
 	}
 	std::vector<std::array<int,3>> u3(n-n1-n2,std::array<int,3>());
-  mxm  = std::max(mxm,count);          //  |Σ| = size of current alphabet. (mxm ⩽ n && count ⫹ 2n/3) ⇒ |Σ|⩽ n.
+  mxm  = std::max(mxm,n1+n2);          //  |Σ| = size of current alphabet. (mxm ⩽ n && n1+n2 ⫹ 2n/3) ⇒ |Σ|⩽ n.
 
 	for(int k=0; k<2; ++k){
 		std::vector<int> c((uint)mxm+2,0);
