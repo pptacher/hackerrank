@@ -85,18 +85,19 @@ void lcp(string& s, std::vector<int>& v, std::vector<int>& h){
 void dc3(std::vector<int>& u, std::vector<int>& v){
 
   int n = u.size();
+  u.push_back(-1);
 
   if(n<=2){
-		std::iota(v.begin(),v.end(),1);
-		if(n==2 && u[1]<=u[0]){
-			std::swap(v[0],v[1]);
-		}
+        std::iota(v.begin(),v.end(),1);
+        v.push_back(0);
+        if(n==2 && u[1]<=u[0]){
+            std::swap(v[0],v[1]);
+        }
     return;
   }
 
-	u.push_back(-1);
   v.push_back(0);
-	++n;
+  ++n;
 
   int n1((n-1+2)/3);
   int n2((n-2+2)/3);
