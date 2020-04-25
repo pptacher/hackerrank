@@ -68,6 +68,9 @@ RELEASEFLAGS := -O2 -D NDEBUG
 dc3.o : dc3.cc
 				$(COMPILO) -c -std=c++17 $(CXXFLAGS) dc3.cc
 
+dc30.o : dc30.cc
+				$(COMPILO) -c -std=c++17 $(CXXFLAGS) dc30.cc
+
 
 # Fabrication de la lib
 
@@ -76,6 +79,9 @@ dc3.o : dc3.cc
 
 dc3.bin : dc3.o
 		$(COMPILO) -o   dc3.bin dc3.o
+
+dc30.bin : dc30.o
+		$(COMPILO) -o   dc30.bin dc30.o
 
 # Les cibles de l'aide
 

@@ -8,3 +8,5 @@ Beautiful algorithms to compute suffix array and longest common prefix array in 
 - *CS 166: Data structures*, Stanford, [Suffix arrays and longest common prefix array](https://web.stanford.edu/class/archive/cs/cs166/cs166.1146/lectures/11/Small11.pdf)
 
 - *String Function Calculation* , [Hackerrank](https://www.hackerrank.com/challenges/string-function-calculation/problem)
+
+- *Build a palindrome* , [Hackerrank](https://www.hackerrank.com/challenges/challenging-palindromes/problem)
