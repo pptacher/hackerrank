@@ -18,7 +18,6 @@ void dc3(std::vector<int>&, std::vector<int>&);
 void lcp(string& s, std::vector<int>&,std::vector<int>&);
 void rmqInit(std::vector<int>& v, std::vector<std::vector<int>>& u,std::vector<int>& w);
 int rmqQuery(std::vector<std::vector<int>>& u, std::vector<int>& w, int i, int j);
-int palindromes(string& s, string& str, int j, std::vector<int>& v,std::vector<int>& h, std::vector<int>& pos, std::vector<std::vector<int>>& u1, std::vector<int>& w);
 int match(string& s1, int j, string& s2, std::vector<int>& h, std::vector<int>& pos1r, std::vector<std::vector<int>>& u,std::vector<int>&, int&,int&,int& );
 void preprocess(string&, std::vector<int>&, std::vector<int>&, std::vector<int>&, std::vector<std::vector<int>>&, std::vector<int>&, std::vector<int>&,bool);
 void buildPalindrome(string&,string&,string&,std::vector<int>&,std::vector<int>&,std::vector<int>&,std::vector<std::vector<int>>&,std::vector<int>&,std::vector<int>&,std::vector<int>&,std::vector<int>&,std::vector<std::vector<int>>&,std::vector<int>&,std::vector<int>&,int&,int&,int&);
