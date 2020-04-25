@@ -177,26 +177,19 @@ void preprocess(string& s,
 
 }
 
-//TO DO: factor code palindromes / match.
 int match(string& s1, int j, string& s2, std::vector<int>& h, std::vector<int>& pos, std::vector<std::vector<int>>& u,std::vector<int>& w, int& suffix, int& k1, int& hint){
   int n = s1.length();
   int m = s2.length()+1;
   int res(0);
   int lcp(k1>0?k1:0);
-
   int k(k1>0?k1:0);
-
   int a(0), b(m-1);
   int mid(k1>0?hint:a + (b-a)/2),mid1(mid);
   int last(mid);
 
   while(k+j<n && a<=b){
-    //std::cout << "a: " << a << " b: " << b << ' '<<m <<std::endl;
-    //mid1 = mid;
-    //mid = a + (b-a)/2;
 
     lcp = mid==last?lcp:rmqQuery(u,w,std::min(mid,last),std::max(mid,last)-1);
-    //std::cout << last << ' ' << mid << ' ' << lcp << std::endl;
 
     if(lcp>=k+1){
         if(mid1<mid){
@@ -217,7 +210,6 @@ int match(string& s1, int j, string& s2, std::vector<int>& h, std::vector<int>& 
     }
     else {
       while(j+k<n && pos[mid]+k<m-1 && s1[j+k]==s2[pos[mid]+k]){
-        //std::cout << "found: " << k << ' ' << pos[mid] << std::endl;
         suffix = mid;
         ++k;
       }
@@ -261,80 +253,7 @@ void rmqInit(std::vector<int>& v, std::vector<std::vector<int>>& u,std::vector<i
 
 int rmqQuery(std::vector<std::vector<int>>& u, std::vector<int>& w, int i, int j){
   int k = w[j-i];
-  //std::cout << "rmq " << i << ' '<< j-(1<<k)+1 << ' '<<u.size()<<' '<<k<< ' '<<u[j-(1<<k)+1].size()<<std::endl;
   return std::min(u[i][k],u[j-(1<<k)+1][k]);
-}
-
-//TO DO: factor code palindromes / match.
-int palindromes(string& s, string& str, int j, std::vector<int>& v,std::vector<int>& h, std::vector<int>& pos, std::vector<std::vector<int>>& u1, std::vector<int>& w){
-  int n = s.length();
-  int m = v.size();
-  int res(0);
-  int lcp(0);
-
-  int k(0);
-  //std::cout << "palin k: " << k << std::endl;
-  int a(0), b(v.size()-1);
-  int mid(0),mid1;
-  int last(mid);
-  while(k+j<n && a<=b){
-    //std::cout << "palin a: " << a << " b: " << b << std::endl;
-    mid1 = mid;
-    mid = a + (b-a)/2;
-
-    lcp = mid==last?lcp:rmqQuery(u1,w,std::min(mid,last),std::max(mid,last)-1);
-    //std::cout << last << ' ' << mid << ' ' << lcp << std::endl;
-
-    if(lcp>=k+1){
-        if(mid1<mid){
-          a = mid+1;
-        }
-        else{
-          b = mid-1;
-        }
-        last = mid;
-    }
-    if(lcp<k){
-        if(last<mid){
-          b = mid-1;
-        }
-        else{
-          a = mid+1;
-        }
-    }
-    else {
-      while(j+k<n && pos[mid]+k<m-1 && s[j+k]==str[pos[mid]+k]){
-        //std::cout << "found: " << k << ' ' << pos[mid] << std::endl;
-
-        int x(mid-1);
-        // TO DO: use h instead and prune.
-        while(x>0 && /*rmqQuery(u1,w,x,mid-1)*/h[x]>k){
-          --x;
-        }
-        while(++x<=mid || x==mid || (x<m && /*rmqQuery(u1,w,mid,x-1)*/h[x-1]>k)){
-          //std::cout << ' ' << pos[x];
-          if(pos[x]==m-1-j-k-1){
-            //std::cout << "palindrome! " << std::endl;
-            res = k+1;
-            break;
-          }
-        }
-        //std::cout << std::endl;
-        ++k;
-      }
-      if(  j+k<n &&  pos[mid]+k < m-1 && s[j+k] < str[pos[mid]+k]){
-            b = mid-1;
-      }
-      else{
-            a = mid + 1;
-      }
-      last = mid;
-    }
-
-  }
-
-  return res;
-
 }
 
 void lcp(string& s, std::vector<int>& v, std::vector<int>& h){
