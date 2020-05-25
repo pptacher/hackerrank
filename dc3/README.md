@@ -10,3 +10,5 @@ Beautiful algorithms to compute suffix array and longest common prefix array in 
 - *String Function Calculation* , [Hackerrank](https://www.hackerrank.com/challenges/string-function-calculation/problem)
 
 - *Build a palindrome* , [Hackerrank](https://www.hackerrank.com/challenges/challenging-palindromes/problem)
+
+- *Ashton and String* , [Hackerrank](https://www.hackerrank.com/challenges/ashton-and-string/problem)
