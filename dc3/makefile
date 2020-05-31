@@ -71,6 +71,12 @@ dc3.o : dc3.cc
 dc30.o : dc30.cc
 				$(COMPILO) -c -std=c++17 $(CXXFLAGS) dc30.cc
 
+ashton0.o : ashton0.cc
+				$(COMPILO) -c -std=c++17 $(CXXFLAGS) ashton0.cc
+
+functional.o : functional.cc
+				$(COMPILO) -c -std=c++17 $(CXXFLAGS) functional.cc
+
 
 # Fabrication de la lib
 
@@ -80,8 +86,14 @@ dc30.o : dc30.cc
 dc3.bin : dc3.o
 		$(COMPILO) -o   dc3.bin dc3.o
 
+ashton0.bin : ashton0.o
+		$(COMPILO) -o   ashton0.bin ashton0.o
+
 dc30.bin : dc30.o
 		$(COMPILO) -o   dc30.bin dc30.o
+
+functional.bin : functional.o
+		$(COMPILO) -o   functional.bin functional.o
 
 # Les cibles de l'aide
 
